@@ -3,7 +3,7 @@ import Header from './Header'
 import Nav from './Nav'
 import Footer from './Footer'
 
-export default function Layout({ children, title = 'موسوعة الأسرة المسلمة' }) {
+export default function Layout({ children, title = 'موسوعة الأسرة المسلمة', activeBook = null }) {
   return (
     <>
       <Head>
@@ -13,7 +13,7 @@ export default function Layout({ children, title = 'موسوعة الأسرة ا
         <meta name="description" content="موسوعة الأسرة المسلمة — مرجع إسلامي شامل" />
       </Head>
       <Header />
-      <Nav />
+      <Nav activeBook={activeBook} />
       <main className="main-content">{children}</main>
       <Footer />
     </>

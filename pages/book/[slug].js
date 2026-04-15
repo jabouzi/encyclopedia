@@ -1,8 +1,9 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Layout from '../../components/Layout'
 import Sidebar from '../../components/Sidebar'
 import ArticleView from '../../components/ArticleView'
 import { encyclopediaData } from '../../data/encyclopedia'
+import { BOOK_SLUGS, SLUG_TO_BOOK_ID } from '../../lib/slugs'
 import Link from 'next/link'
 
 export default function BookPage({ book, chapters }) {
@@ -10,11 +11,15 @@ export default function BookPage({ book, chapters }) {
     chapters.length > 0 ? chapters[0].id : null
   )
 
+  useEffect(() => {
+    setActiveChapterId(chapters.length > 0 ? chapters[0].id : null)
+  }, [book.id])
+
   const activeChapter = chapters.find((ch) => ch.id === activeChapterId)
   const activeArticle = activeChapter?.articles?.[0] || null
 
   return (
-    <Layout title={book.nameAr}>
+    <Layout title={book.nameAr} activeBook={book.id}>
       <div className="container">
         {/* Breadcrumb */}
         <div className="breadcrumb">
@@ -79,7 +84,7 @@ export default function BookPage({ book, chapters }) {
 
 export async function getStaticPaths() {
   const paths = encyclopediaData.books.map((book) => ({
-    params: { id: book.id },
+    params: { slug: BOOK_SLUGS[book.id] || book.id },
   }))
 
   return {
@@ -89,7 +94,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const book = encyclopediaData.books.find((b) => b.id === params.id)
+  const bookId = SLUG_TO_BOOK_ID[params.slug] || params.slug
+  const book = encyclopediaData.books.find((b) => b.id === bookId)
 
   if (!book) {
     return { notFound: true }

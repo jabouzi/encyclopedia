@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "scrape": "node scripts/scrape.js",
+    "scrape:book": "node scripts/scrape.js --book",
+    "import": "node scripts/import.js"
   },
   "dependencies": {
     "@nozbe/watermelondb": "^0.27.1",
