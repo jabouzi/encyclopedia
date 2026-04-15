@@ -1,5 +1,21 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { BOOK_SLUGS } from '../lib/slugs'
+
+function SearchForm() {
+  const router = useRouter()
+  function handleSubmit(e) {
+    e.preventDefault()
+    const q = e.target.q.value.trim()
+    if (q) router.push(`/search?q=${encodeURIComponent(q)}`)
+  }
+  return (
+    <form onSubmit={handleSubmit} className="nav-search">
+      <input name="q" placeholder="بحث..." className="nav-search-input" />
+      <button type="submit" className="nav-search-btn">🔍</button>
+    </form>
+  )
+}
 
 const navigationBooks = [
   { id: 'book-1', label: 'أخلاق المسلم' },
@@ -34,6 +50,7 @@ export default function Nav({ activeBook = null }) {
           </Link>
         )
       })}
+      <SearchForm />
     </nav>
   )
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
 import Layout from '../../components/Layout'
 import Sidebar from '../../components/Sidebar'
 import ArticleView from '../../components/ArticleView'
@@ -7,13 +8,19 @@ import { BOOK_SLUGS, SLUG_TO_BOOK_ID } from '../../lib/slugs'
 import Link from 'next/link'
 
 export default function BookPage({ book, chapters }) {
+  const router = useRouter()
   const [activeChapterId, setActiveChapterId] = useState(
     chapters.length > 0 ? chapters[0].id : null
   )
 
   useEffect(() => {
-    setActiveChapterId(chapters.length > 0 ? chapters[0].id : null)
-  }, [book.id])
+    const chapterFromQuery = router.query.chapter
+    if (chapterFromQuery && chapters.some((ch) => ch.id === chapterFromQuery)) {
+      setActiveChapterId(chapterFromQuery)
+    } else {
+      setActiveChapterId(chapters.length > 0 ? chapters[0].id : null)
+    }
+  }, [book.id, router.query.chapter])
 
   const activeChapter = chapters.find((ch) => ch.id === activeChapterId)
   const activeArticle = activeChapter?.articles?.[0] || null
