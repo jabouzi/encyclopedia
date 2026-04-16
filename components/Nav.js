@@ -1,56 +1,87 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { BOOK_SLUGS } from '../lib/slugs'
+import { useTranslation, SUPPORTED_LANGS } from '../lib/useTranslation'
+import { encyclopediaData } from '../data/encyclopedia'
 
-function SearchForm() {
+const LANG_LABELS = { ar: 'ع', en: 'EN', fr: 'FR' }
+
+function SearchForm({ lang }) {
+  const { t } = useTranslation(lang)
   const router = useRouter()
   function handleSubmit(e) {
     e.preventDefault()
     const q = e.target.q.value.trim()
-    if (q) router.push(`/search?q=${encodeURIComponent(q)}`)
+    if (q) router.push(`/${lang}/search?q=${encodeURIComponent(q)}`)
   }
   return (
     <form onSubmit={handleSubmit} className="nav-search">
-      <input name="q" placeholder="بحث..." className="nav-search-input" />
+      <input name="q" placeholder={t('search_placeholder')} className="nav-search-input" />
       <button type="submit" className="nav-search-btn">🔍</button>
     </form>
   )
 }
 
-const navigationBooks = [
-  { id: 'book-1', label: 'أخلاق المسلم' },
-  { id: 'book-2', label: 'الآداب الإسلامية' },
-  { id: 'book-3', label: 'الأسرة السعيدة' },
-  { id: 'book-4', label: 'قصص الأنبياء' },
-  { id: 'book-5', label: 'البيت المسلم' },
-  { id: 'book-6', label: 'التاريخ الإسلامي' },
-  { id: 'book-7', label: 'الحضارة الإسلامية' },
-  { id: 'book-8', label: 'السيرة النبوية' },
-  { id: 'book-9', label: 'الصحابة الكرام' },
-  { id: 'book-10', label: 'العبادات' },
-  { id: 'book-11', label: 'العقيدة' },
-  { id: 'book-12', label: 'الولد الصالح' },
-  { id: 'book-13', label: 'قضايا إسلامية' },
-  { id: 'book-14', label: 'مسلمات' },
-  { id: 'book-15', label: 'أعلام المسلمين' },
-  { id: 'book-16', label: 'معاملات إسلامية' },
-]
+function LangSwitcher({ lang, activeBook }) {
+  const router = useRouter()
 
-export default function Nav({ activeBook = null }) {
+  function handleSwitch(targetLang) {
+    if (typeof localStorage !== 'undefined') localStorage.setItem('lang', targetLang)
+  }
+
+  function getHref(targetLang) {
+    // If on a book page, switch to the same book in the target language
+    if (activeBook) {
+      const slug = BOOK_SLUGS[activeBook] || activeBook
+      return `/${targetLang}/book/${slug}`
+    }
+    // Check if on search page
+    if (router.pathname.includes('/search')) {
+      const q = router.query.q || ''
+      return q ? `/${targetLang}/search?q=${encodeURIComponent(q)}` : `/${targetLang}/search`
+    }
+    return `/${targetLang}`
+  }
+
+  return (
+    <div className="lang-switcher">
+      {SUPPORTED_LANGS.map((l) => (
+        <Link
+          key={l}
+          href={getHref(l)}
+          onClick={() => handleSwitch(l)}
+          className={`lang-btn ${l === lang ? 'active' : ''}`}
+        >
+          {LANG_LABELS[l]}
+        </Link>
+      ))}
+    </div>
+  )
+}
+
+export default function Nav({ activeBook = null, lang = 'ar' }) {
+  const { t } = useTranslation(lang)
+  const nameKey = `name${lang.charAt(0).toUpperCase() + lang.slice(1)}`
+
   return (
     <nav className="nav">
-      <Link href="/" className={`nav-link ${activeBook === null ? 'active' : ''}`}>
-        الرئيسية
+      <Link href={`/${lang}`} className={`nav-link ${activeBook === null ? 'active' : ''}`}>
+        {t('home')}
       </Link>
-      {navigationBooks.map((book) => {
+      {encyclopediaData.books.map((book) => {
         const slug = BOOK_SLUGS[book.id] || book.id
         return (
-          <Link key={book.id} href={`/book/${slug}`} className={`nav-link ${activeBook === book.id ? 'active' : ''}`}>
-            {book.label}
+          <Link
+            key={book.id}
+            href={`/${lang}/book/${slug}`}
+            className={`nav-link ${activeBook === book.id ? 'active' : ''}`}
+          >
+            {book[nameKey] || book.nameAr}
           </Link>
         )
       })}
-      <SearchForm />
+      <SearchForm lang={lang} />
+      <LangSwitcher lang={lang} activeBook={activeBook} />
     </nav>
   )
 }

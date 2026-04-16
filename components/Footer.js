@@ -1,14 +1,17 @@
-export default function Footer() {
+import { useTranslation } from '../lib/useTranslation'
+
+export default function Footer({ lang = 'ar' }) {
+  const { t } = useTranslation(lang)
   const currentYear = new Date().getFullYear()
 
   return (
     <footer className="footer">
       <p>
-        <strong>موسوعة الأسرة المسلمة</strong>
+        <strong>{t('site_title')}</strong>
       </p>
-      <p>محتوى مستعاد من أرشيف الإنترنت (2010)</p>
+      <p>{t('footer_source')}</p>
       <div className="footer-copyright">
-        <p>&copy; {currentYear} جميع الحقوق محفوظة</p>
+        <p>&copy; {currentYear} {t('footer_rights')}</p>
       </div>
     </footer>
   )

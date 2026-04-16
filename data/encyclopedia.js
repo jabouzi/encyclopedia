@@ -3,6 +3,8 @@ export const encyclopediaData = {
     {
       "id": "book-1",
       "nameAr": "أخلاق المسلم",
+      "nameEn": "Muslim Ethics",
+      "nameFr": "Éthique Musulmane",
       "description": "كتاب يتناول الأخلاق الإسلامية وفضائل النفس التي يجب على المسلم أن يتحلى بها",
       "icon": "🌿",
       "orderIndex": 1,
@@ -10,6 +12,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-1",
           "nameAr": "أخلاق المسلم",
+          "nameEn": "Muslim Ethics",
+          "nameFr": "Éthique Musulmane",
           "orderIndex": 1,
           "articles": [
             {
@@ -23,6 +27,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-2",
           "nameAr": "الإخلاص",
+          "nameEn": "Sincerity",
+          "nameFr": "La Sincérité",
           "orderIndex": 2,
           "articles": [
             {
@@ -36,6 +42,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-3",
           "nameAr": "الصبر",
+          "nameEn": "Patience",
+          "nameFr": "La Patience",
           "orderIndex": 3,
           "articles": [
             {
@@ -49,6 +57,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-4",
           "nameAr": "الصدق",
+          "nameEn": "Truthfulness",
+          "nameFr": "La Véracité",
           "orderIndex": 4,
           "articles": [
             {
@@ -62,6 +72,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-5",
           "nameAr": "الإحسان",
+          "nameEn": "Goodness",
+          "nameFr": "La Bonté",
           "orderIndex": 5,
           "articles": [
             {
@@ -75,6 +87,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-6",
           "nameAr": "الأمانة",
+          "nameEn": "Trustworthiness",
+          "nameFr": "La Fidélité",
           "orderIndex": 6,
           "articles": [
             {
@@ -88,6 +102,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-7",
           "nameAr": "بر الوالدين",
+          "nameEn": "Honoring Parents",
+          "nameFr": "Honorer ses Parents",
           "orderIndex": 7,
           "articles": [
             {
@@ -101,6 +117,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-8",
           "nameAr": "القناعة",
+          "nameEn": "Contentment",
+          "nameFr": "Le Contentement",
           "orderIndex": 8,
           "articles": [
             {
@@ -114,6 +132,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-9",
           "nameAr": "الاعتدال",
+          "nameEn": "Moderation",
+          "nameFr": "La Modération",
           "orderIndex": 9,
           "articles": [
             {
@@ -127,6 +147,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-10",
           "nameAr": "الكرم",
+          "nameEn": "Generosity",
+          "nameFr": "La Générosité",
           "orderIndex": 10,
           "articles": [
             {
@@ -140,6 +162,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-11",
           "nameAr": "الإيثار",
+          "nameEn": "Altruism",
+          "nameFr": "L'Altruisme",
           "orderIndex": 11,
           "articles": [
             {
@@ -153,6 +177,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-12",
           "nameAr": "الحلم",
+          "nameEn": "Forbearance",
+          "nameFr": "La Clémence",
           "orderIndex": 12,
           "articles": [
             {
@@ -166,6 +192,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-13",
           "nameAr": "الرفق",
+          "nameEn": "Gentleness",
+          "nameFr": "La Douceur",
           "orderIndex": 13,
           "articles": [
             {
@@ -179,6 +207,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-14",
           "nameAr": "العدل",
+          "nameEn": "Justice",
+          "nameFr": "La Justice",
           "orderIndex": 14,
           "articles": [
             {
@@ -192,6 +222,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-15",
           "nameAr": "الحياء",
+          "nameEn": "Modesty",
+          "nameFr": "La Pudeur",
           "orderIndex": 15,
           "articles": [
             {
@@ -205,6 +237,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-16",
           "nameAr": "الوفاء",
+          "nameEn": "Loyalty",
+          "nameFr": "La Loyauté",
           "orderIndex": 16,
           "articles": [
             {
@@ -218,6 +252,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-17",
           "nameAr": "الشورى",
+          "nameEn": "Consultation",
+          "nameFr": "La Consultation",
           "orderIndex": 17,
           "articles": [
             {
@@ -231,6 +267,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-18",
           "nameAr": "الشكر",
+          "nameEn": "Gratitude",
+          "nameFr": "La Gratitude",
           "orderIndex": 18,
           "articles": [
             {
@@ -244,6 +282,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-19",
           "nameAr": "حفظ اللسان",
+          "nameEn": "Guarding the Tongue",
+          "nameFr": "Garder la Langue",
           "orderIndex": 19,
           "articles": [
             {
@@ -257,6 +297,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-20",
           "nameAr": "العفة",
+          "nameEn": "Chastity",
+          "nameFr": "La Chasteté",
           "orderIndex": 20,
           "articles": [
             {
@@ -270,6 +312,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-21",
           "nameAr": "التواضع",
+          "nameEn": "Humility",
+          "nameFr": "L'Humilité",
           "orderIndex": 21,
           "articles": [
             {
@@ -283,6 +327,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-22",
           "nameAr": "العزة",
+          "nameEn": "Honor",
+          "nameFr": "L'Honneur",
           "orderIndex": 22,
           "articles": [
             {
@@ -296,6 +342,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-23",
           "nameAr": "الستر",
+          "nameEn": "Discretion",
+          "nameFr": "La Discrétion",
           "orderIndex": 23,
           "articles": [
             {
@@ -309,6 +357,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-24",
           "nameAr": "الكتمان",
+          "nameEn": "Keeping Secrets",
+          "nameFr": "Garder les Secrets",
           "orderIndex": 24,
           "articles": [
             {
@@ -322,6 +372,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-25",
           "nameAr": "الشجاعة",
+          "nameEn": "Courage",
+          "nameFr": "Le Courage",
           "orderIndex": 25,
           "articles": [
             {
@@ -335,6 +387,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-26",
           "nameAr": "العفو",
+          "nameEn": "Forgiveness",
+          "nameFr": "Le Pardon",
           "orderIndex": 26,
           "articles": [
             {
@@ -348,6 +402,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-27",
           "nameAr": "العمل",
+          "nameEn": "Work",
+          "nameFr": "Le Travail",
           "orderIndex": 27,
           "articles": [
             {
@@ -361,6 +417,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-28",
           "nameAr": "التعاون",
+          "nameEn": "Cooperation",
+          "nameFr": "La Coopération",
           "orderIndex": 28,
           "articles": [
             {
@@ -374,6 +432,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-29",
           "nameAr": "الرحمة",
+          "nameEn": "Mercy",
+          "nameFr": "La Miséricorde",
           "orderIndex": 29,
           "articles": [
             {
@@ -387,6 +447,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-30",
           "nameAr": "الأمل",
+          "nameEn": "Hope",
+          "nameFr": "L'Espoir",
           "orderIndex": 30,
           "articles": [
             {
@@ -400,6 +462,8 @@ export const encyclopediaData = {
         {
           "id": "book-1-ch-31",
           "nameAr": "التأني",
+          "nameEn": "Deliberateness",
+          "nameFr": "La Réflexion",
           "orderIndex": 31,
           "articles": [
             {
@@ -415,6 +479,8 @@ export const encyclopediaData = {
     {
       "id": "book-2",
       "nameAr": "الآداب الإسلامية",
+      "nameEn": "Islamic Etiquette",
+      "nameFr": "Étiquette Islamique",
       "description": "كتاب يتناول آداب وسلوكيات المسلم في مختلف جوانب حياته اليومية",
       "icon": "📖",
       "orderIndex": 2,
@@ -760,6 +826,8 @@ export const encyclopediaData = {
     {
       "id": "book-3",
       "nameAr": "الأسرة السعيدة",
+      "nameEn": "The Happy Family",
+      "nameFr": "La Famille Heureuse",
       "description": "كتاب يتناول الزواج والحياة الأسرية والعلاقات الزوجية في الإسلام",
       "icon": "🏡",
       "orderIndex": 3,
@@ -886,6 +954,8 @@ export const encyclopediaData = {
     {
       "id": "book-4",
       "nameAr": "قصص الأنبياء",
+      "nameEn": "Stories of the Prophets",
+      "nameFr": "Histoires des Prophètes",
       "description": "كتاب يحتوي على قصص الأنبياء والرسل وحكاياتهم العظيمة",
       "icon": "✨",
       "orderIndex": 4,
@@ -1231,6 +1301,8 @@ export const encyclopediaData = {
     {
       "id": "book-5",
       "nameAr": "البيت المسلم",
+      "nameEn": "The Muslim Home",
+      "nameFr": "La Maison Musulmane",
       "description": "كتاب يتناول آداب البيت والحياة الأسرية والعلاقات الأسرية",
       "icon": "🕌",
       "orderIndex": 5,
@@ -1450,6 +1522,8 @@ export const encyclopediaData = {
     {
       "id": "book-6",
       "nameAr": "التاريخ الإسلامي",
+      "nameEn": "Islamic History",
+      "nameFr": "Histoire Islamique",
       "description": "كتاب يتناول تاريخ الحضارة الإسلامية والخلافات والدول",
       "icon": "🕰",
       "orderIndex": 6,
@@ -2369,6 +2443,8 @@ export const encyclopediaData = {
     {
       "id": "book-7",
       "nameAr": "الحضارة الإسلامية",
+      "nameEn": "Islamic Civilization",
+      "nameFr": "Civilisation Islamique",
       "description": "كتاب يتناول إنجازات الحضارة الإسلامية والعلوم والفنون",
       "icon": "🌍",
       "orderIndex": 7,
@@ -2546,6 +2622,8 @@ export const encyclopediaData = {
     {
       "id": "book-8",
       "nameAr": "السيرة النبوية",
+      "nameEn": "The Prophetic Biography",
+      "nameFr": "La Biographie Prophétique",
       "description": "كتاب يتناول حياة النبي محمد ﷺ وسيرته العطرة",
       "icon": "🌙",
       "orderIndex": 8,
@@ -3129,6 +3207,8 @@ export const encyclopediaData = {
     {
       "id": "book-9",
       "nameAr": "الصحابة الكرام",
+      "nameEn": "The Noble Companions",
+      "nameFr": "Les Nobles Compagnons",
       "description": "كتاب يتناول سير الصحابة رضي الله عنهم وفضائلهم",
       "icon": "⭐",
       "orderIndex": 9,
@@ -4440,6 +4520,8 @@ export const encyclopediaData = {
     {
       "id": "book-10",
       "nameAr": "العبادات",
+      "nameEn": "Acts of Worship",
+      "nameFr": "Les Actes d'Adoration",
       "description": "كتاب يتناول العبادات في الإسلام وأحكامها وشروطها",
       "icon": "🤲",
       "orderIndex": 10,
@@ -4561,6 +4643,8 @@ export const encyclopediaData = {
     {
       "id": "book-11",
       "nameAr": "العقيدة",
+      "nameEn": "Islamic Creed",
+      "nameFr": "La Croyance Islamique",
       "description": "كتاب يتناول العقيدة الإسلامية والإيمان والتوحيد",
       "icon": "💡",
       "orderIndex": 11,
@@ -4822,6 +4906,8 @@ export const encyclopediaData = {
     {
       "id": "book-12",
       "nameAr": "الولد الصالح",
+      "nameEn": "The Righteous Child",
+      "nameFr": "L'Enfant Vertueux",
       "description": "كتاب يتناول تربية الأطفال والتنشئة الإسلامية",
       "icon": "👦",
       "orderIndex": 12,
@@ -5027,6 +5113,8 @@ export const encyclopediaData = {
     {
       "id": "book-13",
       "nameAr": "قضايا إسلامية",
+      "nameEn": "Islamic Issues",
+      "nameFr": "Questions Islamiques",
       "description": "كتاب يتناول القضايا الإسلامية المعاصرة والمهمة",
       "icon": "⚖️",
       "orderIndex": 13,
@@ -5470,6 +5558,8 @@ export const encyclopediaData = {
     {
       "id": "book-14",
       "nameAr": "مسلمات",
+      "nameEn": "Muslim Women",
+      "nameFr": "Femmes Musulmanes",
       "description": "كتاب يتناول مكانة المرأة المسلمة وحقوقها وواجباتها",
       "icon": "👩",
       "orderIndex": 14,
@@ -6389,6 +6479,8 @@ export const encyclopediaData = {
     {
       "id": "book-15",
       "nameAr": "أعلام المسلمين",
+      "nameEn": "Distinguished Muslims",
+      "nameFr": "Personnalités Musulmanes",
       "description": "كتاب يتناول أعظم العلماء والحكماء في الحضارة الإسلامية",
       "icon": "🏅",
       "orderIndex": 15,
@@ -7322,6 +7414,8 @@ export const encyclopediaData = {
     {
       "id": "book-16",
       "nameAr": "معاملات إسلامية",
+      "nameEn": "Islamic Transactions",
+      "nameFr": "Transactions Islamiques",
       "description": "كتاب يتناول المعاملات والتجارة والاقتصاد في الإسلام",
       "icon": "🤝",
       "orderIndex": 16,

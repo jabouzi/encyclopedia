@@ -2,20 +2,28 @@ import Head from 'next/head'
 import Header from './Header'
 import Nav from './Nav'
 import Footer from './Footer'
+import { useTranslation } from '../lib/useTranslation'
 
-export default function Layout({ children, title = 'موسوعة الأسرة المسلمة', activeBook = null }) {
+export default function Layout({ children, title, activeBook = null, lang = 'ar' }) {
+  const { t } = useTranslation(lang)
+  const pageTitle = title ? `${title} — ${t('site_title')}` : t('site_title')
+  const dir = lang === 'ar' ? 'rtl' : 'ltr'
+
   return (
     <>
       <Head>
-        <title>{`${title} — موسوعة الأسرة المسلمة`}</title>
+        <title>{pageTitle}</title>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="موسوعة الأسرة المسلمة — مرجع إسلامي شامل" />
+        <meta name="description" content={t('site_description')} />
+        <html lang={lang} dir={dir} />
       </Head>
-      <Header />
-      <Nav activeBook={activeBook} />
-      <main className="main-content">{children}</main>
-      <Footer />
+      <div dir={dir} lang={lang}>
+        <Header lang={lang} />
+        <Nav activeBook={activeBook} lang={lang} />
+        <main className="main-content">{children}</main>
+        <Footer lang={lang} />
+      </div>
     </>
   )
 }
