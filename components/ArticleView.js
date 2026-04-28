@@ -1,69 +1,71 @@
+// Split a paragraph string into alternating text/quran/hadith segments
+function parseInlineSegments(text) {
+  const segments = []
+  // Combined regex: matches {quran} or «hadith»
+  const pattern = /\{([^}]+)\}|«([^»]+)»/g
+  let last = 0
+  let match
+
+  while ((match = pattern.exec(text)) !== null) {
+    if (match.index > last) {
+      segments.push({ type: 'text', content: text.slice(last, match.index) })
+    }
+    if (match[1] !== undefined) {
+      segments.push({ type: 'quran', content: match[1] })
+    } else {
+      segments.push({ type: 'hadith', content: match[2] })
+    }
+    last = pattern.lastIndex
+  }
+
+  if (last < text.length) {
+    segments.push({ type: 'text', content: text.slice(last) })
+  }
+
+  return segments
+}
+
+function renderSegments(segments) {
+  return segments.map((seg, i) => {
+    if (seg.type === 'quran') {
+      return <span key={i} className="quran-inline">{seg.content}</span>
+    }
+    if (seg.type === 'hadith') {
+      return <span key={i} className="hadith-inline">{seg.content}</span>
+    }
+    return <span key={i}>{seg.content}</span>
+  })
+}
+
 export default function ArticleView({ article = {} }) {
   const { nameAr = '', content = '' } = article
 
-  // Parse content into sections with proper styling
   const parseContent = (text) => {
     if (!text) return []
 
     const lines = text.split('\n')
     const sections = []
-    let currentSection = null
+    let currentParagraph = null
 
-    lines.forEach((line, index) => {
+    lines.forEach((line) => {
       const trimmed = line.trim()
 
       if (!trimmed) {
-        // Empty line
-        if (currentSection && currentSection.type === 'paragraph') {
-          sections.push(currentSection)
-          currentSection = null
+        if (currentParagraph) {
+          sections.push(currentParagraph)
+          currentParagraph = null
         }
         return
       }
 
-      if (trimmed.startsWith('{') && trimmed.endsWith('}')) {
-        // Quran verse
-        if (currentSection && currentSection.type === 'paragraph') {
-          sections.push(currentSection)
-          currentSection = null
-        }
-        const verseText = trimmed.slice(1, -1)
-        sections.push({
-          type: 'quran',
-          content: verseText,
-        })
-      } else if (trimmed.startsWith('«') && trimmed.endsWith('»')) {
-        // Hadith
-        if (currentSection && currentSection.type === 'paragraph') {
-          sections.push(currentSection)
-          currentSection = null
-        }
-        const hadithText = trimmed.slice(1, -1)
-        sections.push({
-          type: 'hadith',
-          content: hadithText,
-        })
+      if (!currentParagraph) {
+        currentParagraph = { type: 'paragraph', content: trimmed }
       } else {
-        // Regular paragraph
-        if (!currentSection || currentSection.type !== 'paragraph') {
-          if (currentSection) {
-            sections.push(currentSection)
-          }
-          currentSection = {
-            type: 'paragraph',
-            content: trimmed,
-          }
-        } else {
-          currentSection.content += ' ' + trimmed
-        }
+        currentParagraph.content += ' ' + trimmed
       }
     })
 
-    // Push remaining section
-    if (currentSection) {
-      sections.push(currentSection)
-    }
-
+    if (currentParagraph) sections.push(currentParagraph)
     return sections
   }
 
@@ -72,27 +74,11 @@ export default function ArticleView({ article = {} }) {
   return (
     <article className="article">
       <h1>{nameAr}</h1>
-      {sections.map((section, index) => {
-        if (section.type === 'quran') {
-          return (
-            <div key={index} className="quran-verse">
-              {section.content}
-            </div>
-          )
-        } else if (section.type === 'hadith') {
-          return (
-            <div key={index} className="hadith">
-              {section.content}
-            </div>
-          )
-        } else {
-          return (
-            <p key={index}>
-              {section.content}
-            </p>
-          )
-        }
-      })}
+      {sections.map((section, index) => (
+        <p key={index}>
+          {renderSegments(parseInlineSegments(section.content))}
+        </p>
+      ))}
     </article>
   )
 }
